@@ -300,7 +300,7 @@
 .primaryButton:hover {
   filter: brightness(1.12);
   transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(177, 18, 18, 0.45);
+  box-shadow: 0 12px 30px #a8895a72;
 }
 
 .primaryButton:active {
