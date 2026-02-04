@@ -16,7 +16,7 @@ function pickSrc(src: unknown, fallback: string) {
 }
 
 type Props = {
-  vehicles: Vehicle[];
+  vehicles: readonly Vehicle[];
 
   // ✅ neu: wird aufgerufen wenn "Jetzt wählen" gedrückt wird
   onSelect?: (vehicle: Vehicle) => void;
@@ -30,7 +30,10 @@ export default function HomeHeroSlider({
   onSelect,
   bookingAnchorId = "booking",
 }: Props) {
-  const safeVehicles = useMemo(() => vehicles ?? [], [vehicles]);
+  const safeVehicles = useMemo<readonly Vehicle[]>(
+    () => vehicles ?? [],
+    [vehicles]
+  );
   const [index, setIndex] = useState(0);
 
   const v = safeVehicles[index];
