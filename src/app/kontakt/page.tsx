@@ -14,7 +14,7 @@ const GALLERY = [
 const INFO_MAILTO = "mailto:info@americanlimousine.de";
 
 // ✅ Booking E-Mail (mit Formular)
-const BOOKING_EMAIL_TO = "booking@americanlimousine.service";
+const BOOKING_EMAIL_TO = "info@americanlimousine.de";
 const BOOKING_EMAIL_SUBJECT = "Anfrage / Reservierung – American Limousine Service";
 
 const BOOKING_EMAIL_BODY = [
@@ -29,19 +29,26 @@ const BOOKING_EMAIL_BODY = [
   "KONTAKTDATEN (Name, Telefon):",
   "",
   "WUNSCHFAHRZEUG (bitte auswählen):",
-  "☐ LINCOLN Town Car Stretch-Limousine (White, 6 Pax)",
-  "☐ LINCOLN Town Car Stretch-Limousine (Black, 8 Pax)",
-  "☐ LINCOLN Town Car Stretch-Limousine (White, 8 Pax)",
-  "☐ HUMMER H2 Stretch-Limousine",
-  "☐ CADILLAC Escalade Stretch-Limousine",
-  "☐ Sprinter / Van (Business)",
-  "☐ Anderes:",
+  "☐ LINCOLN TownCar (White, 6 Pax)",
+  "☐ LINCOLN TownCar (Black, 8 Pax)",
+  "☐ LINCOLN TownCar (Pink, 8 Pax)",
+  "☐ LINCOLN TownCar (Golden, 8 Pax)",
+  "☐ LINCOLN TownCar (White, 8 Pax)",
+  "☐ HUMMER H2 (Black)",
+  "☐ HUMMER H2 (White)",
+  "☐ HUMMER H3 (White)",
+  "☐ GMC YUKON",
+  "☐ V-Class (Business)",
   "",
   "EXTRAS (optional):",
   "☐ Autodekoration",
-  "☐ Champagner / Getränke",
-  "☐ Mehrere Stops / Party-Tour",
+  "☐ Extra Champagner / Getränke",
+  "☐ Roter Teppich",
+  "☐ Just Married Flaggen",
+  "☐ Stripper",
+  "☐ Stripperin",
   "☐ Rückfahrt",
+  "☐ FotografenService",
   "",
   "HINWEISE / WÜNSCHE:",
   "",
@@ -119,7 +126,7 @@ export default function KontaktPage() {
 
             <a
               className={styles.bigBtn}
-              href="https://www.google.com/maps/search/?api=1&query=American+Limousine+Service+M%C3%BCnchen"
+              href="https://www.google.com/maps/search/?api=1&query=American+Limousine+Service+GmbH,+Josefstraße+23,+82178+Puchheim"
               target="_blank"
               rel="noreferrer"
             >
@@ -136,7 +143,7 @@ export default function KontaktPage() {
             <div className={styles.cardKicker}>SOCIAL</div>
             <div className={styles.cardTitle}>Folgen & schreiben</div>
 
-            <a className={styles.socialRow} href="#" target="_blank" rel="noreferrer">
+            <a className={styles.socialRow} href="https://www.instagram.com/americanlimousineservice/" target="_blank" rel="noreferrer">
               <div className={styles.socialMain}>
                 <div className={styles.socialLabel}>INSTAGRAM</div>
                 <div className={styles.socialSub}>Folge uns</div>
@@ -144,7 +151,7 @@ export default function KontaktPage() {
               <div className={styles.socialArrow}>↗</div>
             </a>
 
-            <a className={styles.socialRow} href="#" target="_blank" rel="noreferrer">
+            <a className={styles.socialRow} href="https://www.facebook.com/AmericanLimousinenService/?locale=de_DE" target="_blank" rel="noreferrer">
               <div className={styles.socialMain}>
                 <div className={styles.socialLabel}>FACEBOOK</div>
                 <div className={styles.socialSub}>Schreib uns</div>

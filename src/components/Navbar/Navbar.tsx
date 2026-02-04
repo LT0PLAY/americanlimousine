@@ -90,6 +90,22 @@ export default function Navbar() {
     setOpen(false);
   };
 
+  const goToFahrzeuge = (e?: React.MouseEvent) => {
+    if (pathname === "/") {
+      e?.preventDefault();
+      const el = document.getElementById("fahrzeuge");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      window.history.replaceState(null, "", "/#fahrzeuge");
+      setHash("#fahrzeuge");
+      setOpen(false);
+      return;
+    }
+
+    router.push("/#fahrzeuge");
+    setOpen(false);
+  };
+
   return (
     <header className={styles.navbar} role="banner">
       <div className={styles.inner}>
@@ -148,15 +164,9 @@ export default function Navbar() {
             <span className={styles.phoneText}>+49 89 7256252</span>
           </a>
 
-          <a
-            href="https://wa.me/49897256252"
-            className={styles.cta}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="WhatsApp Anfrage"
-          >
+          <Link href="/#fahrzeuge" className={styles.cta} onClick={goToFahrzeuge} aria-label="Jetzt anfragen">
             ANFRAGE
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -226,15 +236,9 @@ export default function Navbar() {
           <a className={styles.drawerPhone} href="tel:+49897256252">
             +49 89 7256252
           </a>
-          <a
-            className={styles.drawerCta}
-            href="https://wa.me/49897256252"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="WhatsApp Anfrage"
-          >
+          <Link href="/#fahrzeuge" className={styles.drawerCta} onClick={goToFahrzeuge} aria-label="Jetzt anfragen">
             ANFRAGE
-          </a>
+          </Link>
         </div>
       </aside>
     </header>
