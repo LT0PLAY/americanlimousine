@@ -9,6 +9,18 @@ export type VehicleInfoPage = {
   basePath?: string;
 
   /**
+   * Optional: großes Hero-Wallpaper oben auf der InfoPage
+   * Empfehlung: /images/vehicles/<slug>/info/hero-wallpaper.webp
+   */
+  heroWallpaper?: string;
+
+  /**
+   * Optional: Interior-Wallpaper / Section-Hintergrund
+   * Empfehlung: /images/vehicles/<slug>/info/interior-wallpaper.webp
+   */
+  interiorWallpaper?: string;
+
+  /**
    * Optional: Überschrift/SEO-CTA Textblock (wenn nicht gesetzt, nimmt er v.seo.text)
    */
   ctaText?: string;
