@@ -2,7 +2,13 @@
 "use client";
 
 import styles from "./Services.module.css";
+
 import { services } from "@/content/service";
+
+type ServiceStat = {
+  value: string;
+  label: string;
+};
 
 export default function Services({
   bookingAnchorId = "fahrzeuge",
@@ -33,7 +39,7 @@ export default function Services({
             <article key={s.id} className={styles.card}>
               <div className={styles.left}>
                 <div className={styles.stats} aria-label="Service Werte">
-                  {s.stats.slice(0, 2).map((st, i) => (
+                  {s.stats.slice(0, 2).map((st: ServiceStat, i: number) => (
                     <div key={`${s.id}-st-${i}`} className={styles.stat}>
                       <div className={styles.statValue}>{st.value}</div>
                       <div className={styles.statLabel}>{st.label}</div>
