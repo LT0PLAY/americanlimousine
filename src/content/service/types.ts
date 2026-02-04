@@ -10,10 +10,12 @@ export type ServiceItem = {
   title: string;
   subtitle?: string;
   description: string;
+
   imageSrc: string;
   imageAlt: string;
+
   stats: ServiceStat[];
 
-  // optional für mobile (1:1), wird in Services.tsx benutzt
+  // optional für mobile (1:1)
   imageSrcMobile?: string;
 };
