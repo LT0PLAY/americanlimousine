@@ -84,7 +84,7 @@ export const lincolnTownCarPink8p: Vehicle = {
     heroWallpaper: "/images/vehicles/lincoln-towncar-pink-8p/info/hero-wallpaper.webp",
     interiorWallpaper: "/images/vehicles/lincoln-towncar-pink-8p/info/interior-wallpaper.webp",
 
-    videoUrl: "/images/vehicles/lincoln-town-car-pink-8p/showcase.mp4",
+    videoUrl: "/images/vehicles/lincoln-towncar-pink-8p/showcase.mp4",
 
     ctaText:
       "Die pinke Lincoln Town Car Stretch-Limousine ist ein echter Hingucker für Partys, Junggesellinnenabschiede und besondere Events in München. Exklusiv, auffällig und mit Chauffeur.",

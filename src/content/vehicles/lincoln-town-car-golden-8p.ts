@@ -84,7 +84,7 @@ export const lincolnTownCarGolden8p: Vehicle = {
     heroWallpaper: "/images/vehicles/lincoln-towncar-golden-8p/info/hero-wallpaper.webp",
     interiorWallpaper: "/images/vehicles/lincoln-towncar-golden-8p/info/interior-wallpaper.webp",
 
-    videoUrl: "/images/vehicles/lincoln-town-car-golden-8p/showcase.mp4",
+    videoUrl: "/images/vehicles/lincoln-towncar-golden-8p/showcase.mp4",
 
     ctaText:
       "Die goldene Lincoln Town Car Stretch-Limousine ist ein echter Hingucker für Hochzeiten, Events und exklusive Fahrten in München. Luxuriös, auffällig und mit Chauffeur – für bis zu 8 Personen.",
