@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { Inter, Bodoni_Moda } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Navbar />
         <main style={{ paddingTop: 74, flex: 1 }}>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
