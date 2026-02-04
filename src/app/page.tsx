@@ -1,66 +1,49 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// src/app/page.tsx
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import HomeHeroSlider from "@/components/HomeHeroSlider/HomeHeroSlider";
+import BookingForm from "@/components/booking/BookingForm";
+import BrandLogoMarquee from "@/components/home/BrandLogoMarquee";
+import Unsere_Limousinen from "@/components/home/Unsere_Limousinen";
+import Services from "@/components/home/Services";
+import { vehicles, type Vehicle } from "@/content/vehicles";
+import styles from "./page.module.css";
+import Ueber_Uns from "@/components/home/UeberUns";
+import HomeHeader from "@/components/home/HomeHeader";
+
+export default function HomePage() {
+  const [selected, setSelected] = useState<Vehicle | null>(null);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className={styles.main}>
+      {/* HERO HEADER */}
+      <HomeHeader />
+
+      {/* ✅ Anchor für "Fahrzeugauswahl" */}
+      <div id="fahrzeuge">
+        <HomeHeroSlider
+          vehicles={vehicles}
+          onSelect={(v) => setSelected(v)}
+          bookingAnchorId="booking"
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      <section id="booking" className={styles.bookingSection} aria-label="Buchung">
+        <BookingForm vehicle={selected} defaultDurationHours={2} />
+        <BrandLogoMarquee />
+      </section>
+
+      {/* SEO Text Block */}
+      <Unsere_Limousinen />
+
+      {/* ✅ WICHTIG: Anchor für Services */}
+      <section id="services" aria-label="Services">
+        <Services bookingAnchorId="fahrzeuge" />
+      </section>
+
+      {/* Über Uns – Text + Video */}
+      <Ueber_Uns />
+    </main>
   );
 }

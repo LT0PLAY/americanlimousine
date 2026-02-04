@@ -1,0 +1,85 @@
+/* src/components/home/Unsere_Limousinen.module.css */
+
+.wrap {
+  width: 100%;
+  padding: 56px 24px 80px;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kickerRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.kickerIndex {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #a8895a;
+}
+
+.kickerLine {
+  height: 2px;
+  width: 54px;
+  background: #a8895a;
+  border-radius: 999px;
+  opacity: 0.95;
+}
+
+.title {
+  margin: 6px 0 0;
+  font-size: clamp(26px, 3.2vw, 44px);
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.subTitle {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.text {
+  margin-top: 22px;
+  max-width: 980px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    padding: 40px 14px 60px;
+  }
+
+  .kickerLine {
+    width: 44px;
+  }
+
+  .text {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+}

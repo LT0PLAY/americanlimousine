@@ -1,0 +1,157 @@
+.footer {
+  width: 100%;
+  background: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 64px 24px 32px;
+  box-sizing: border-box;
+}
+
+/* ================= LAYOUT ================= */
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 64px;
+}
+
+/* ================= COLUMNS ================= */
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ================= BRAND ================= */
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.address {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ================= CONTACT ================= */
+
+.contact a {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.contact a:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ================= SECTION TITLES ================= */
+
+.colTitle {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ================= LINKS ================= */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ================= SOCIAL ================= */
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.socials a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.socials a:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsappButton {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(37, 211, 102, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.whatsappButton:hover {
+  background: rgba(37, 211, 102, 0.22);
+  transform: translateY(-1px);
+}
+
+.whatsappIcon {
+  font-size: 18px;
+}
+
+/* ================= BOTTOM ================= */
+
+.bottom {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer {
+    padding: 48px 16px 28px;
+  }
+
+  .bottom {
+    margin-top: 32px;
+    font-size: 12px;
+  }
+}

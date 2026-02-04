@@ -1,0 +1,331 @@
+/* src/components/Navbar/Navbar.module.css */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  background: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+}
+
+.inner {
+  height: var(--nav-h, 68px);
+  max-width: 1800px;
+  width: min(1800px, 96vw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 210px;
+}
+
+.brandTop {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.brandBottom {
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+.brandBottom span {
+  color: #a8895a;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 3vw, 44px);
+}
+
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 8px 2px;
+}
+
+.navLink:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background: #a8895a;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.phoneIcon {
+  opacity: 0.75;
+}
+
+.cta {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 10px 14px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.cta:hover {
+  border-color: #a8895a;
+}
+
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  padding: 10px;
+}
+
+.burgerBar {
+  display: block;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.78);
+  margin: 6px 0;
+}
+
+/* Drawer Overlay */
+.drawerOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 49;
+}
+
+.drawerOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer Panel */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(360px, 92vw);
+  background: rgba(0, 0, 0, 0.92);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateX(102%);
+  transition: transform 180ms ease;
+  z-index: 51;
+
+  padding: 16px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  /* wirkt “weniger boxy” */
+  box-shadow: -30px 0 80px rgba(0, 0, 0, 0.55);
+}
+
+.drawerOpen {
+  transform: translateX(0%);
+}
+
+.drawerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.drawerTitle {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.drawerClose {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}
+
+/* ✅ Links als “echtes Menü” statt riesige Boxen */
+.drawerLinks {
+  padding: 12px 0;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.drawerLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin: 0;
+
+  padding: 14px 14px;              /* ✅ kompakt, aber gut tappbar */
+  border-radius: 14px;
+
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Chevron rechts */
+.drawerLink::after {
+  content: "›";
+  opacity: 0.65;
+  font-size: 18px;
+  transform: translateY(-1px);
+}
+
+/* Hover/Active feel */
+.drawerLink:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Active: kein fetter roter Rahmen, sondern rote Linie links */
+.drawerActive {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.drawerActive::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: #a8895a;
+}
+
+/* Footer */
+.drawerFooter {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.drawerPhone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  height: 48px;
+  border-radius: 14px;
+
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.95);
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 11px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.drawerPhone:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.drawerCta {
+  text-decoration: none;
+  color: white;
+  background: #a8895a;
+  padding: 12px 14px;
+  text-align: center;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 11px;
+  border-radius: 14px;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .nav {
+    display: none;
+  }
+
+  .burger {
+    display: inline-block;
+  }
+
+  .phoneText {
+    display: none;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+}
+
+/* Sehr kleine Geräte: etwas weniger Padding */
+@media (max-width: 380px) {
+  .drawerLink {
+    padding: 12px 12px;
+    font-size: 11px;
+  }
+}

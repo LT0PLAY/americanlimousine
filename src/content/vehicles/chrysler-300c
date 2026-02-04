@@ -1,0 +1,42 @@
+// src/content/vehicles/chrysler-300c.ts
+import type { Vehicle } from "./types";
+
+export const chrysler300c: Vehicle = {
+  slug: "chrysler-300c",
+  brand: "CHRYSLER 300C",
+  name: "300C Stretch-Limousine",
+
+  images: {
+    car: "/images/vehicles/chrysler-300c/car.webp",
+    wallpaper: "/images/vehicles/chrysler-300c/wallpaper.webp",
+  },
+
+  shortDescription:
+    "Elegant und klassisch. Der Chrysler 300C ist perfekt für Hochzeiten, Business und stilvolle Transfers.",
+
+  specs: {
+    persons: 10,
+    lengthMeters: 8.5,
+    motor: "V8",
+  },
+
+  pricing: {
+    fromPerHourEUR: 119,
+    unitLabel: "/ 1 Std.",
+    note: "Alle Preise zzgl. MwSt.",
+  },
+
+  availability: {
+    label: "24/7",
+    subLabel: "ERREICHBAR",
+  },
+
+  features: [
+    "Leder-Interieur",
+    "Ambientebeleuchtung",
+    "Premium Soundsystem",
+    "Bar / Getränke",
+    "Klimaanlage",
+    "Getönte Scheiben",
+  ],
+};

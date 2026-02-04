@@ -1,0 +1,113 @@
+/* =========
+   Full Width Banner
+   ========= */
+.wrap {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 28px 0;
+  overflow: hidden;
+}
+
+/* =========
+   Banner Fläche
+   ========= */
+.card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* ✅ NEU: echter Zentrier-Container */
+.center {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* =========
+   Bewegte Logo-Reihe (Desktop)
+   ========= */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+  width: max-content;
+  padding: 20px 64px;
+
+  animation: slidePingPong 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* =========
+   Logos
+   ========= */
+.logo {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+
+  opacity: 0.92;
+  filter: grayscale(1);
+  transition: opacity 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: translateY(-1px);
+}
+
+/* =========
+   Animation
+   ========= */
+@keyframes slidePingPong {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(140px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-140px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* =========
+   Mobile: statisch, 4 Logos nebeneinander
+   ========= */
+@media (max-width: 900px) {
+  .center {
+    overflow: visible;
+  }
+
+  .row {
+    animation: none;
+    padding: 16px 12px;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .logo {
+    height: 40px;
+    max-width: 22%;
+  }
+}
+
+/* =========
+   Accessibility
+   ========= */
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    animation: none;
+    transform: none;
+  }
+}

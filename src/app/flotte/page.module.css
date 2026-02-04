@@ -1,0 +1,220 @@
+/* src/app/flotte/page.module.css */
+
+.main {
+  min-height: 100vh;
+  background: #0b0b0b;
+  color: #ffffff;
+  padding: 56px 24px;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 26px;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+}
+
+.h1 {
+  margin: 14px 0 0;
+  font-size: clamp(34px, 4.5vw, 62px);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sub {
+  margin: 10px 0 0;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+}
+
+/* ========================= */
+/* GRID                     */
+/* ========================= */
+
+.grid {
+  max-width: 1200px;
+  margin: 26px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* ========================= */
+/* CARD                     */
+/* ========================= */
+
+.card {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #a8895a67;
+}
+
+/* ========================= */
+/* MEDIA (Wallpaper + Auto) */
+/* ========================= */
+
+.media {
+  position: relative;
+  height: 320px;
+  background: #111;
+  overflow: hidden;
+}
+
+/* ===== WALLPAPER ===== */
+.wallpaperImg {
+  object-fit: cover;
+  filter: brightness(1.55) contrast(1.04) saturate(0.98);
+  transform: scale(1.12);
+}
+
+/* ===== OVERLAY ===== */
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at right, #a8895a3c, transparent 90%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.78));
+}
+
+/* ========================= */
+/* CARD TOP (Brand Only)     */
+/* ========================= */
+
+.cardTop {
+  position: absolute;
+  inset: 18px 18px auto 18px;
+  z-index: 2;
+}
+
+/* ✅ nur kurzer Name, mittig, golden */
+.brandOnly {
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 0.35em;
+  color: #a8895a;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* ========================= */
+/* AUTO                     */
+/* ========================= */
+
+.carWrap {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: -12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.car {
+  width: 100%;
+  height: auto;
+  transform: scale(1.08);
+  filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.85));
+}
+
+/* ========================= */
+/* BOTTOM                   */
+/* ========================= */
+
+.cardBottom {
+  padding: 18px 18px 16px;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.spec {
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.specValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.specLabel {
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========================= */
+/* CTA                      */
+/* ========================= */
+
+.ctaRow {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.cta {
+  font-weight: 600;
+}
+
+.ctaArrow {
+  color: #a8895a;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* RESPONSIVE               */
+/* ========================= */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    height: 300px;
+  }
+
+  .car {
+    transform: scale(1.22);
+  }
+}

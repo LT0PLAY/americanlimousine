@@ -1,0 +1,116 @@
+.main {
+  width: 100%;
+  padding: 56px 24px 90px;
+  box-sizing: border-box;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+}
+
+.kickerRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.kickerIndex {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #a8895a;
+}
+
+.kickerLine {
+  height: 2px;
+  width: 54px;
+  background: #a8895a;
+  border-radius: 999px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.08;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.subTitle {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 26px;
+}
+
+.h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.h3 {
+  margin: 18px 0 10px;
+  font-size: 15px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.h3NoTop {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.card {
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 16px 16px;
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.a {
+  color: rgba(255, 255, 255, 0.90);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.a:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding: 40px 14px 70px;
+  }
+}
