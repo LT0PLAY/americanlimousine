@@ -84,7 +84,7 @@ export const hummerH2White8p: Vehicle = {
     interiorWallpaper: "/images/vehicles/hummer-h2-white-8p/info-interior.webp",
 
     // optionales Video
-    videoUrl: "/videos/vehicles/hummer-h2-white-8p/intro.mp4",
+    videoUrl: "/images/vehicles/hummer-h2-white-8p/intro.mp4",
 
     // CTA / SEO Text (Block unter dem Interior)
     ctaText:

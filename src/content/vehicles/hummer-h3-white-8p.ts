@@ -93,7 +93,7 @@ export const hummerH3White8p: Vehicle = {
     interiorWallpaper: "/images/vehicles/hummer-h3-white-8p/info/interior-wallpaper.webp",
 
     // ✅ optionales Video
-    videoUrl: "/videos/vehicles/hummer-h3-white-8p/showcase.mp4",
+    videoUrl: "/images/vehicles/hummer-h3-white-8p/showcase.mp4",
 
     // ✅ CTA / SEO Text
     ctaText:

@@ -84,7 +84,7 @@ export const lincolnTownCarWhite8p: Vehicle = {
     basePath: "/images/vehicles/lincoln-towncar-white-8p/info",
 
     // optional: falls du ein Video hast
-    videoUrl: "/videos/vehicles/lincoln-towncar-white-8p/showcase.mp4",
+    videoUrl: "/images/vehicles/lincoln-towncar-white-8p/showcase.mp4",
 
     ctaText:
       "Die Lincoln Town Car Stretch-Limousine in Weiß ist perfekt für Hochzeiten, VIP-Auftritte und besondere Events in München. Stilvoll, großzügig und mit Chauffeur – für bis zu 8 Personen.",

@@ -89,7 +89,7 @@ export const lincolnTownCarBlack8p: Vehicle = {
     interiorWallpaper: "/images/vehicles/lincoln-towncar-black-8p/info/interior-wallpaper.webp",
 
     // ✅ optionales Video
-    videoUrl: "/videos/vehicles/lincoln-town-car-black-8p/showcase.mp4",
+    videoUrl: "/images/vehicles/lincoln-town-car-black-8p/showcase.mp4",
 
     // ✅ CTA/SEO Block Text
     ctaText:

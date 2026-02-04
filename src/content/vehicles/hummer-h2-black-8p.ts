@@ -67,7 +67,7 @@ export const hummerH2Black8p: Vehicle = {
       "/images/vehicles/hummer-h2-black-8p/info/interior-wallpaper.webp",
 
     videoUrl:
-      "/videos/vehicles/hummer-h2-black-8p/showcase.mp4",
+      "/images/vehicles/hummer-h2-black-8p/showcase.mp4",
 
     ctaText:
       "Die schwarze Hummer H2 Stretch-Limousine steht für maximalen Auftritt, Luxus und Präsenz. Ideal für Events, VIP-Transfers und besondere Anlässe in München – mit Chauffeur und Platz für bis zu 8 Personen.",

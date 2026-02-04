@@ -82,7 +82,7 @@ export const mercedesVKlasseBlack7p: Vehicle = {
     basePath: "/images/vehicles/mercedes-v-klasse-black/info",
 
     // Video (optional)
-    videoUrl: "/videos/vehicles/mercedes-v-klasse-black/showcase.mp4",
+    videoUrl: "/images/vehicles/mercedes-v-klasse-black/showcase.mp4",
 
     // CTA/SEO Text (optional, sonst nimmt er seo.text)
     ctaText:

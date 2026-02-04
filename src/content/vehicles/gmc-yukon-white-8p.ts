@@ -67,7 +67,7 @@ export const gmcYukonWhite8p: Vehicle = {
     heroWallpaper: "/images/vehicles/gmc-yukon-white/info/hero-wallpaper.webp",
     interiorWallpaper: "/images/vehicles/gmc-yukon-white/info/interior-wallpaper.webp",
 
-    videoUrl: "/videos/vehicles/gmc-yukon-white/showcase.mp4",
+    videoUrl: "/images/vehicles/gmc-yukon-white/showcase.mp4",
 
     ctaText:
       "Der GMC Yukon Stretch bietet luxuriösen Komfort und viel Platz für Business-Transfers, Events und exklusive Fahrten in München. Ideal für Gruppen bis zu 8 Personen – repräsentativ, ruhig und souverän.",
