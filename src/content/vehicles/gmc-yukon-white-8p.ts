@@ -83,7 +83,7 @@ export const gmcYukonWhite8p: Vehicle = {
       },
       {
         title: "Premium Komfort",
-        text: "Großzügiger Innenraum, Komfortsitze und ruhige Fahrt für höchste Ansprüche.",
+        text: "Großzügiger Innenraum, Komfortsitze und ruhige Fahrt – inklusive gekühltem Moët & Chandon Champagner..",
         image: "/images/vehicles/gmc-yukon-white-8p/info/highlight-2.webp",
       },
       {
