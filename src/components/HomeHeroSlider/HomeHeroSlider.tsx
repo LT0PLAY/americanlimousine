@@ -23,12 +23,15 @@ type Props = {
 
   // Optional: wohin gescrollt werden soll (Default: "#booking")
   bookingAnchorId?: string;
+
+  selectedSlug?: string | null;
 };
 
 export default function HomeHeroSlider({
   vehicles,
   onSelect,
   bookingAnchorId = "booking",
+  selectedSlug = null,
 }: Props) {
   const safeVehicles = useMemo<readonly Vehicle[]>(() => vehicles ?? [], [vehicles]);
 
@@ -40,6 +43,16 @@ export default function HomeHeroSlider({
   useEffect(() => {
     indexRef.current = index;
   }, [index]);
+
+  // ✅ Wenn ein Fahrzeug extern gewählt wurde (Booking), Slider darauf synchronisieren
+  useEffect(() => {
+    if (!selectedSlug) return;
+    const idx = safeVehicles.findIndex((x) => x.slug === selectedSlug);
+    if (idx >= 0) {
+      setIndex(idx);
+      setHasSelected(true);
+    }
+  }, [selectedSlug, safeVehicles]);
 
   // ✅ Falls sich die Fahrzeugliste ändert und der Index out-of-range wäre
   useEffect(() => {
