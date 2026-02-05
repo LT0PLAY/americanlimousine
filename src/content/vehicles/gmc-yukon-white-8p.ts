@@ -10,15 +10,15 @@ export const gmcYukonWhite8p: Vehicle = {
   heroLabel: "STRETCH LIMOUSINE",
 
   images: {
-    wallpaper: "/images/vehicles/gmc-yukon-white/wallpaper.webp",
-    car: "/images/vehicles/gmc-yukon-white/car.webp",
+    wallpaper: "/images/vehicles/gmc-yukon-white-8p/wallpaper.webp",
+    car: "/images/vehicles/gmc-yukon-white-8p/car.webp",
   },
 
   // ✅ klassische Galerie (optional, fallback / Zusatz)
   gallery: [
-    { label: "Außen", src: "/images/vehicles/gmc-yukon-white/gallery-1.webp" },
-    { label: "Innenraum", src: "/images/vehicles/gmc-yukon-white/gallery-2.webp" },
-    { label: "Details", src: "/images/vehicles/gmc-yukon-white/gallery-3.webp" },
+    { label: "Außen", src: "/images/vehicles/gmc-yukon-white-8p/gallery-1.webp" },
+    { label: "Innenraum", src: "/images/vehicles/gmc-yukon-white-8p/gallery-2.webp" },
+    { label: "Details", src: "/images/vehicles/gmc-yukon-white-8p/gallery-3.webp" },
   ],
 
   specs: {
@@ -64,10 +64,13 @@ export const gmcYukonWhite8p: Vehicle = {
 
   // ✅ NEU: Inhalte für die Infopage (Design wie Mercedes / Hummer)
   infoPage: {
-    heroWallpaper: "/images/vehicles/gmc-yukon-white/info/hero-wallpaper.webp",
-    interiorWallpaper: "/images/vehicles/gmc-yukon-white/info/interior-wallpaper.webp",
+    heroWallpaper: "/images/vehicles/gmc-yukon-white-8p/info/hero-wallpaper.webp",
 
-    videoUrl: "/images/vehicles/gmc-yukon-white/showcase.mp4",
+    
+    interiorWallpaper:
+    "/images/vehicles/gmc-yukon-white-8p/info/interior-wallpaper.webp",
+
+    videoUrl: "/images/vehicles/gmc-yukon-white-8p/showcase.mp4",
 
     ctaText:
       "Der GMC Yukon Stretch bietet luxuriösen Komfort und viel Platz für Business-Transfers, Events und exklusive Fahrten in München. Ideal für Gruppen bis zu 8 Personen – repräsentativ, ruhig und souverän.",
@@ -76,17 +79,17 @@ export const gmcYukonWhite8p: Vehicle = {
       {
         title: "Business & Transfers",
         text: "Perfekt für Geschäftstermine, Hotels und repräsentative Transfers.",
-        image: "/images/vehicles/gmc-yukon-white/info/highlight-1.webp",
+        image: "/images/vehicles/gmc-yukon-white-8p/info/highlight-1.webp",
       },
       {
         title: "Premium Komfort",
         text: "Großzügiger Innenraum, Komfortsitze und ruhige Fahrt für höchste Ansprüche.",
-        image: "/images/vehicles/gmc-yukon-white/info/highlight-2.webp",
+        image: "/images/vehicles/gmc-yukon-white-8p/info/highlight-2.webp",
       },
       {
         title: "Events & Gruppen",
         text: "Bis zu 8 Personen – ideal für Events, VIP-Shuttles und besondere Anlässe.",
-        image: "/images/vehicles/gmc-yukon-white/info/highlight-3.webp",
+        image: "/images/vehicles/gmc-yukon-white-8p/info/highlight-3.webp",
       },
     ],
   },

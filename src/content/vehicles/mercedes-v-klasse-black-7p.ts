@@ -86,7 +86,7 @@ export const mercedesVKlasseBlack7p: Vehicle = {
 
     // CTA/SEO Text (optional, sonst nimmt er seo.text)
     ctaText:
-      "Die Mercedes V-Klasse ist der perfekte VIP Van für Business-Transfers, Airport-Service und Events in München. Diskret, komfortabel und repräsentativ – mit Chauffeur und Platz für bis zu 7 Personen.",
+      "Die Mercedes-Benz V-Klasse ist der ideale VIP-Van in München für Business-Transfers, Flughafentransfers und exklusive Events, perfekt geeignet für Geschäftsreisende, Firmenkunden und VIP-Personentransfers, die in München Wert auf Diskretion, Komfort und ein repräsentatives Auftreten legen – mit erfahrenem Chauffeur, großzügigem Platz für bis zu 7 Personen sowie einem zuverlässigen Chauffeur-Service in München für professionelle Fahrten auf höchstem Niveau.",
 
     // 3 Highlight-Karten: Bilder werden automatisch genommen (highlight-1.webp etc.)
     highlights: [

@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./HomeHeroSlider.module.css";
 import type { Vehicle } from "@/content/vehicles";
 
@@ -18,10 +18,10 @@ function pickSrc(src: unknown, fallback: string) {
 type Props = {
   vehicles: readonly Vehicle[];
 
-  // ✅ neu: wird aufgerufen wenn "Jetzt wählen" gedrückt wird
+  // Wird aufgerufen wenn "Jetzt wählen" gedrückt wird
   onSelect?: (vehicle: Vehicle) => void;
 
-  // ✅ optional: wohin gescrollt werden soll (Default: "#booking")
+  // Optional: wohin gescrollt werden soll (Default: "#booking")
   bookingAnchorId?: string;
 };
 
@@ -30,36 +30,63 @@ export default function HomeHeroSlider({
   onSelect,
   bookingAnchorId = "booking",
 }: Props) {
-  const safeVehicles = useMemo<readonly Vehicle[]>(
-    () => vehicles ?? [],
-    [vehicles]
-  );
+  const safeVehicles = useMemo<readonly Vehicle[]>(() => vehicles ?? [], [vehicles]);
+
   const [index, setIndex] = useState(0);
+  const [hasSelected, setHasSelected] = useState(false);
+
+  // ✅ Ref, damit prev/next immer den aktuellsten Index haben (ohne setState im render-updater)
+  const indexRef = useRef(0);
+  useEffect(() => {
+    indexRef.current = index;
+  }, [index]);
+
+  // ✅ Falls sich die Fahrzeugliste ändert und der Index out-of-range wäre
+  useEffect(() => {
+    if (!safeVehicles.length) return;
+    if (indexRef.current > safeVehicles.length - 1) {
+      setIndex(0);
+    }
+  }, [safeVehicles]);
 
   const v = safeVehicles[index];
   if (!v) return null;
 
-  const prev = () =>
-    setIndex((i) => (i === 0 ? safeVehicles.length - 1 : i - 1));
-  const next = () =>
-    setIndex((i) => (i === safeVehicles.length - 1 ? 0 : i + 1));
+  const prev = () => {
+    const len = safeVehicles.length;
+    if (!len) return;
+
+    const newIndex = (indexRef.current - 1 + len) % len;
+    setIndex(newIndex);
+
+    // ✅ WICHTIG: onSelect NICHT innerhalb setIndex-updater aufrufen
+    if (hasSelected) onSelect?.(safeVehicles[newIndex]);
+  };
+
+  const next = () => {
+    const len = safeVehicles.length;
+    if (!len) return;
+
+    const newIndex = (indexRef.current + 1) % len;
+    setIndex(newIndex);
+
+    // ✅ WICHTIG: onSelect NICHT innerhalb setIndex-updater aufrufen
+    if (hasSelected) onSelect?.(safeVehicles[newIndex]);
+  };
 
   const wallpaperDesktop = "/images/wallpaper/desktop.webp";
   const wallpaperMobile = "/images/wallpaper/mobile.webp";
 
-  const carSrc = pickSrc(
-    (v as any).car ?? v.images?.car,
-    "/images/placeholder-car.webp"
-  );
+  const carSrc = pickSrc((v as any).car ?? v.images?.car, "/images/placeholder-car.webp");
 
-  // ✅ HERO LABEL AUS FAHRZEUG (falls vorhanden)
+  // HERO LABEL AUS FAHRZEUG (falls vorhanden)
   const heroBottomLabel = (v as any).heroLabel?.trim() || "STRETCH LIMOUSINE";
 
   // ✅ Button-Click: Fahrzeug wählen + scrollen zum Formular
   const handleSelect = () => {
+    setHasSelected(true);
     onSelect?.(v);
 
-    // scroll zu Formular-Container auf Home
     const el = document.getElementById(bookingAnchorId);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -69,21 +96,14 @@ export default function HomeHeroSlider({
       <div className={styles.wallpaper} aria-hidden="true">
         <picture>
           <source media="(max-width: 768px)" srcSet={wallpaperMobile} />
-          <img
-            src={wallpaperDesktop}
-            alt=""
-            className={styles.wallpaperImg}
-            loading="eager"
-          />
+          <img src={wallpaperDesktop} alt="" className={styles.wallpaperImg} loading="eager" />
         </picture>
       </div>
 
       <div className={styles.wallpaperOverlay} aria-hidden="true" />
 
       <div className={styles.header}>
-        <span className={styles.headerClaim}>
-          PREMIUM-LIMOUSINEN-SERVICE FÜR MÜNCHEN & UMGEBUNG
-        </span>
+        <span className={styles.headerClaim}>PREMIUM-LIMOUSINEN-SERVICE FÜR MÜNCHEN & UMGEBUNG</span>
         <span className={styles.counter}>
           {index + 1} / {safeVehicles.length}
         </span>
@@ -99,6 +119,7 @@ export default function HomeHeroSlider({
           type="button"
           className={`${styles.arrow} ${styles.arrowLeft}`}
           onClick={prev}
+          aria-label="Vorheriges Fahrzeug"
         >
           ‹
         </button>
@@ -116,6 +137,7 @@ export default function HomeHeroSlider({
           type="button"
           className={`${styles.arrow} ${styles.arrowRight}`}
           onClick={next}
+          aria-label="Nächstes Fahrzeug"
         >
           ›
         </button>
@@ -146,9 +168,7 @@ export default function HomeHeroSlider({
             <div className={styles.panelKicker}>ERLEBEN SIE EXKLUSIVITÄT</div>
             <div className={styles.priceLine}>
               <span className={styles.pricePrefix}>ab</span>
-              <span className={styles.priceValue}>
-                {v.pricing.fromPerHourEUR}€
-              </span>
+              <span className={styles.priceValue}>{v.pricing.fromPerHourEUR}€</span>
               <span className={styles.priceUnit}>{v.pricing.unitLabel}</span>
             </div>
           </div>
@@ -171,16 +191,10 @@ export default function HomeHeroSlider({
         </div>
 
         <div className={styles.ctas}>
-          {/* ✅ NICHT mehr zu /flotte/[slug] navigieren */}
-          <button
-            type="button"
-            className={styles.primaryButton}
-            onClick={handleSelect}
-          >
+          <button type="button" className={styles.primaryButton} onClick={handleSelect}>
             Jetzt wählen
           </button>
 
-          {/* ✅ Flotte bleibt als separate Übersicht */}
           <Link href="/flotte" className={styles.secondary}>
             Flotte ansehen
           </Link>

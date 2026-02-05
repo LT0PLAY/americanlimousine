@@ -26,6 +26,7 @@ export default function HomePage() {
           vehicles={vehicles}
           onSelect={(v) => setSelected(v)}
           bookingAnchorId="booking"
+          selectedSlug={selected?.slug ?? null}
         />
       </div>
 

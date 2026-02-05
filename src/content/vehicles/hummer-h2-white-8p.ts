@@ -95,17 +95,17 @@ export const hummerH2White8p: Vehicle = {
       {
         title: "Maximaler Auftritt",
         text: "Über 10 Meter Länge und markantes Design – ideal für große Events und spektakuläre Ankünfte.",
-        image: "/images/vehicles/hummer-h2-white-8p/highlight-1.webp",
+        image: "/images/vehicles/hummer-h2-white-8p/info/highlight-1.webp",
       },
       {
         title: "Party & Event",
         text: "Neon-Lights, Sternenhimmel und Bar machen jede Fahrt zum Erlebnis.",
-        image: "/images/vehicles/hummer-h2-white-8p/highlight-2.webp",
+        image: "/images/vehicles/hummer-h2-white-8p/info/highlight-2.webp",
       },
       {
         title: "VIP Komfort",
         text: "Abschließbare Trennwand, ruhiger Innenraum und luxuriöse Sitze für exklusive Fahrten.",
-        image: "/images/vehicles/hummer-h2-white-8p/highlight-3.webp",
+        image: "/images/vehicles/hummer-h2-white-8p/info/highlight-3.webp",
       },
     ],
   },

@@ -253,7 +253,7 @@ export default function BookingForm({ vehicle, defaultDurationHours = 2 }: Props
 
   if (!vehicle) {
     return (
-      <section className={styles.wrap} aria-label="Buchungsformular">
+      <section className={`${styles.wrap} ${styles.emptyCenter}`} aria-label="Buchungsformular">
         <div className={styles.card}>
           <div className={styles.kicker}>BUCHUNGSANFRAGE</div>
           <h2 className={styles.title}>Fahrzeug auswählen</h2>

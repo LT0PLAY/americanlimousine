@@ -189,7 +189,7 @@ export default function VehicleInfoLayout({
 
           <div className={styles.interiorCopy}>
             <div className={styles.blockKicker}>INTERIOR</div>
-            <div className={styles.blockTitle}>Business-Class Komfort</div>
+            <div className={styles.blockTitle}>Luxus & Komfort</div>
             <div className={styles.blockText}>
               Viel Platz, ruhige Atmosphäre und hochwertige Ausstattung – perfekt für Transfers mit Anspruch.
             </div>
