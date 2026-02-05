@@ -3,11 +3,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { Vehicle } from "@/content/vehicles/types";
-import {
-  bookingDurations,
-  type BookingRequest,
-  type PriceBreakdown,
-} from "@/content/booking/types";
+import { type BookingRequest, type PriceBreakdown } from "@/content/booking/types";
 import { bookingLocations } from "@/content/booking/locations";
 import { bookingOccasions } from "@/content/booking/occasions";
 import { bookingExtras } from "@/content/booking/extras";
@@ -63,6 +59,10 @@ function roundToHalfHourHours(h: number) {
   return Math.round(h * 2) / 2;
 }
 
+function clamp(n: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, n));
+}
+
 // ✅ "Heute" als local ISO (kein UTC-Shift)
 function todayISO_local() {
   const d = new Date();
@@ -78,8 +78,14 @@ const TRAVEL_FEE_EUR = 60;
 
 const EXTRAS_VISIBLE_COUNT = 4;
 
+// ✅ Slider-Limits (0.5h Schritte)
+const DURATION_MIN_H = 1;
+const DURATION_MAX_H = 12;
+
 export default function BookingForm({ vehicle, defaultDurationHours = 2 }: Props) {
-  const [durationHours, setDurationHours] = useState<number>(defaultDurationHours);
+  const [durationHours, setDurationHours] = useState<number>(
+    clamp(defaultDurationHours, DURATION_MIN_H, DURATION_MAX_H)
+  );
   const [pickupLocationId, setPickupLocationId] = useState<string>("munich");
   const [occasionId, setOccasionId] = useState<string>("none");
   const [extraIds, setExtraIds] = useState<string[]>([]);
@@ -110,7 +116,7 @@ export default function BookingForm({ vehicle, defaultDurationHours = 2 }: Props
 
   // ✅ Bei Fahrzeugwechsel: alles resetten AUSSER Texte (Name/Mail/Telefon/Nachricht)
   useEffect(() => {
-    setDurationHours(defaultDurationHours);
+    setDurationHours(clamp(defaultDurationHours, DURATION_MIN_H, DURATION_MAX_H));
     setPickupLocationId("munich");
     setOccasionId("none");
     setExtraIds([]);
@@ -155,7 +161,7 @@ export default function BookingForm({ vehicle, defaultDurationHours = 2 }: Props
     const d = diffHours(timeFrom, timeTo);
     if (d == null) return null;
     const rounded = roundToHalfHourHours(d);
-    return Math.max(1, rounded);
+    return clamp(Math.max(DURATION_MIN_H, rounded), DURATION_MIN_H, DURATION_MAX_H);
   }, [useEndTime, timeFrom, timeTo]);
 
   const effectiveDurationHours = useMemo(() => {
@@ -291,27 +297,33 @@ export default function BookingForm({ vehicle, defaultDurationHours = 2 }: Props
             <span>MIETDAUER</span>
           </div>
 
-          <div className={styles.chips}>
-            {bookingDurations.map((d) => {
-              const active = d.hours === durationHours && !useEndTime;
-              return (
-                <button
-                  key={d.hours}
-                  type="button"
-                  disabled={useEndTime}
-                  className={[styles.chip, active ? styles.chipActive : "", useEndTime ? styles.chipDisabled : ""].join(
-                    " "
-                  )}
-                  onClick={() => setDurationHours(d.hours)}
-                >
-                  {d.label}
-                </button>
-              );
-            })}
+          <div className={styles.durationRow}>
+            <div className={styles.durationValue} aria-live="polite">
+              {useEndTime && derivedDurationHours != null ? `${derivedDurationHours}h` : `${durationHours}h`}
+            </div>
+
+            <input
+              className={styles.durationSlider}
+              type="range"
+              min={DURATION_MIN_H}
+              max={DURATION_MAX_H}
+              step={0.5}
+              value={durationHours}
+              disabled={useEndTime}
+              onChange={(e) =>
+                setDurationHours(clamp(Number(e.target.value), DURATION_MIN_H, DURATION_MAX_H))
+              }
+              aria-label="Mietdauer in Stunden"
+            />
+
+            <div className={styles.durationScale} aria-hidden="true">
+              <span>{DURATION_MIN_H}h</span>
+              <span>{DURATION_MAX_H}h</span>
+            </div>
           </div>
 
           <div className={styles.hintSmall}>
-            Bei mehr als <strong>8 Stunden</strong> können die Preise variieren.
+            Bei mehr als <strong>{DURATION_MAX_H} Stunden</strong> können die Preise variieren.
           </div>
         </div>
 
@@ -332,7 +344,7 @@ export default function BookingForm({ vehicle, defaultDurationHours = 2 }: Props
                 checked={useEndTime}
                 onChange={(e) => setUseEndTime(e.target.checked)}
               />
-              <span className={styles.timeModeText}>Endzeit wählen</span>
+              <span className={styles.timeModeText}>Endzeit manuell eintragen (optional)</span>
             </label>
 
             {useEndTime && derivedDurationHours != null ? (
