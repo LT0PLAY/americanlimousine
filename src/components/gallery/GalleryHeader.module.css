@@ -1,276 +1,4 @@
 /* =========================
-   HERO / HEADER
-========================= */
-.hero {
-  padding: 18px 0 0;
-  background: transparent;
-}
-
-.heroInner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px 10px;
-  box-sizing: border-box;
-}
-
-.heroInner * {
-  box-sizing: border-box;
-}
-
-/* ===== Text ===== */
-.heroKicker {
-  font-size: 12px;
-  letter-spacing: 0.35em;
-  color: rgba(255, 255, 255, 0.55);
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.heroTitle {
-  margin: 10px 0 0;
-  font-size: clamp(22px, 3vw, 44px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  text-align: center;
-  color: #fff;
-}
-
-.igLink {
-  margin: 14px auto 0;
-  display: inline-block;
-  text-align: center;
-  color: rgba(168, 137, 90, 0.95);
-  text-decoration: none;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.igLink:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   TOP GRID (Slider + 2 Images)
-   -> obere Hälfte des Screens
-========================= */
-.topGrid {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 14px;
-  align-items: stretch;
-
-  /* ✅ begrenzt die Höhe */
-  height: clamp(220px, 26vh, 320px);
-}
-
-/* Shared Card Look */
-.sliderCard,
-.rightCard,
-.aboutCard,
-.linksCard {
-  height: 100%;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.04);
-  overflow: hidden;
-}
-
-/* =========================
-   SLIDER
-========================= */
-.sliderCard {
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-
-.sliderMedia {
-  position: relative;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.mediaImg {
-  object-fit: cover;
-  filter: brightness(0.82) contrast(1.03) saturate(0.95);
-  transform: scale(1.01);
-}
-
-.sliderOverlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: none;
-}
-
-/* Nav Buttons */
-.navBtn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.35);
-  color: rgba(255, 255, 255, 0.90);
-  font-size: 26px;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
-}
-
-.navBtn:hover {
-  transform: translateY(-50%) translateY(-1px);
-  border-color: rgba(168, 137, 90, 0.75);
-  background: rgba(0, 0, 0, 0.48);
-}
-
-.navLeft {
-  left: 12px;
-}
-.navRight {
-  right: 12px;
-}
-
-/* Dots */
-.dots {
-  padding: 8px 12px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.22);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 99px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.10);
-  cursor: pointer;
-}
-
-.dotActive {
-  width: 22px;
-  background: rgba(168, 137, 90, 0.95);
-  border-color: rgba(168, 137, 90, 0.95);
-}
-
-/* =========================
-   RIGHT COLUMN (2 IMAGES)
-========================= */
-.rightCol {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 14px;
-}
-
-.rightMedia {
-  position: relative;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.rightOverlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: none;
-}
-
-/* =========================
-   BOTTOM ROW (About + Links)
-   -> bleibt kompakt
-========================= */
-.bottomRow {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 14px;
-  align-items: stretch;
-
-  height: clamp(140px, 18vh, 220px);
-}
-
-/* About */
-.aboutCard {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 14px;
-  padding: 14px 16px;
-  align-items: center;
-}
-
-.avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  position: relative;
-}
-
-.avatarImg {
-  object-fit: cover;
-}
-
-.aboutKicker {
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
-}
-
-.aboutTitle {
-  margin-top: 6px;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(168, 137, 90, 0.95);
-}
-
-.aboutText {
-  margin-top: 6px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.74);
-}
-
-/* Links */
-.linksCard {
-  padding: 14px 16px;
-  display: grid;
-  gap: 10px;
-  align-content: center;
-}
-
-.linkBtn {
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.92);
-  text-decoration: none;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.linkBtn:hover {
-  border-color: rgba(168, 137, 90, 0.85);
-  background: rgba(168, 137, 90, 0.18);
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
@@ -283,9 +11,28 @@
     height: auto;
   }
 
+  /* ✅ Wichtig: auf Mobile keine 100%-Höhen erzwingen */
+  .sliderCard,
+  .rightCard,
+  .aboutCard,
+  .linksCard {
+    height: auto;
+  }
+
+  /* ✅ Gib den Bild-Boxen wieder “echte” Höhe via aspect-ratio */
+  .sliderMedia {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
   .rightCol {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+  }
+
+  .rightMedia {
+    height: auto;
+    aspect-ratio: 16 / 10;
   }
 
   .bottomRow {
@@ -297,5 +44,11 @@
 @media (max-width: 520px) {
   .rightCol {
     grid-template-columns: 1fr;
+  }
+
+  /* optional: etwas “höher” für kleine Screens */
+  .sliderMedia,
+  .rightMedia {
+    aspect-ratio: 16 / 11;
   }
 }
