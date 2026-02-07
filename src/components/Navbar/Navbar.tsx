@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import styles from "./Navbar.module.css";
+import { __next_app__ } from "next/dist/build/templates/app-page";
 
 type NavItem = { href: string; label: string; kind?: "servicesAnchor" | "homeAnchor" };
 
@@ -35,6 +36,7 @@ export default function Navbar() {
       { href: "/flotte", label: "FLOTTE" },
       { href: "/#services", label: "SERVICES", kind: "servicesAnchor" },
       { href: "/kontakt", label: "KONTAKT" },
+      { href: "/gallery", label: "GALLERY" },
     ],
     []
   );
