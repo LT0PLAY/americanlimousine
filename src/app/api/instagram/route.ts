@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export const revalidate = 60 * 10; // alle 10 min neu (ISR Cache)
+export const revalidate = 600; // alle 10 min neu (ISR Cache)
 
 type IgMedia = {
   id: string;
@@ -23,7 +23,6 @@ export async function GET() {
     );
   }
 
-  // Instagram Graph API (Business/Creator)
   const url =
     `https://graph.instagram.com/${userId}/media` +
     `?fields=id,caption,media_url,permalink,media_type,thumbnail_url,timestamp` +
@@ -43,7 +42,6 @@ export async function GET() {
 
   const items: IgMedia[] = Array.isArray(json?.data) ? json.data : [];
 
-  // Fallback: VIDEO ohne media_url -> thumbnail_url benutzen
   const normalized = items
     .map((m) => ({
       ...m,
